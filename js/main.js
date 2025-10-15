@@ -10,7 +10,7 @@ let currentMediaType = 'anime';
 // Wrapper para resetView (necesita actualizar el estado global)
 function handleResetView() {
     resetView(currentAnimeList, DOM.searchInput);
-    currentAnimeList = []; // Actualiza el estado global
+    currentAnimeList = []; 
 }
 
 // Event Handlers
@@ -61,7 +61,6 @@ DOM.resultsContainer.addEventListener('click', (event) => {
         const selectedItem = listToSearch.find(item => (item._id || item.id) == itemId);
         
         if (selectedItem) {
-            // Pasamos las funciones necesarias como argumentos a renderItemDetails
             renderItemDetails(selectedItem, currentMediaType, saveFavorite, DOM.myListLink, currentAnimeList);
         }
     }

@@ -1,16 +1,12 @@
-// js/renderModule.mjs
-
 import { DOM } from './domElements.mjs';
 import { isFavorite } from './localStorage.mjs'; 
 
-// Exporta estas funciones para que main.js las pueda usar
 export function resetView(currentAnimeList, searchInput) {
     DOM.animeDetailContainer.style.display = 'none';
     DOM.resultsContainer.style.display = 'block';
     DOM.resultsContainer.innerHTML = '<p>Welcome to Animeplus! Select Anime or Manga and start your search.</p>';
     searchInput.value = '';
     
-    // Necesitamos que main.js actualice currentAnimeList a [] después de llamar a esta función
     
     if(DOM.mainContent) {
         DOM.mainContent.scrollIntoView({ behavior: 'smooth' });
@@ -51,7 +47,6 @@ export function renderAnimeList(items, mediaType) {
         `;
     }).join('');
 
-    // CÓDIGO DE ANIMACIÓN ESCALONADA
     const cards = DOM.resultsContainer.querySelectorAll('.anime-card');
     cards.forEach((card, index) => {
         card.style.animationDelay = `${index * 0.08}s`; 
@@ -106,7 +101,7 @@ export function renderItemDetails(selectedItem, currentMediaType, saveFavorite, 
         </div>
     `;
     
-    // Listeners for detail view (Se quedan aquí porque dependen del HTML que se acaba de crear)
+    // Listeners for detail view 
     document.getElementById('backToList').addEventListener('click', () => {
         DOM.animeDetailContainer.style.display = 'none';
         DOM.resultsContainer.style.display = 'block';
@@ -115,13 +110,13 @@ export function renderItemDetails(selectedItem, currentMediaType, saveFavorite, 
         }
     });
 
-    // Handle Favorites (Necesita saveFavorite y myListLink, que ahora se pasan como argumentos)
+    // Handle Favorites
     document.getElementById('favoriteButton').addEventListener('click', (event) => {
         saveFavorite(selectedItem);
         const updatedFavText = isFavorite(id) ? '❤️ Remove from My List' : '🤍 Add to My List';
         event.target.textContent = updatedFavText;
         
-        // Simular clic en My List si estamos en la vista de favoritos
+
         if (DOM.resultsContainer.querySelector('h2') && DOM.resultsContainer.querySelector('h2').textContent.includes('My Favorites List')) {
             myListLink.click(); 
         }
