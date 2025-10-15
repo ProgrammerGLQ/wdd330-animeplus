@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Animeplus | Search and Favorites</title>
+    
+    <link rel="icon" type="image/png" href="css/play-icon.png"> 
+
+    <link rel="stylesheet" href="css/style.css"> 
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <h1 class="app-title">Animeplus</h1>
+        <form id="searchForm">
+            <input type="text" placeholder="Search Anime by Title..." id="searchInput" class="search-input">
+            <button type="submit" class="search-button">Search</button>
+        </form>
+        <nav>
+            <a href="#" id="myListLink">My List</a>
+        </nav>
+    </header>
+
+    <section id="toggleButtons">
+        <button id="toggleAnime" data-type="anime">Search Anime</button>
+        <button id="toggleManga" data-type="manga">Search Manga</button>
+    </section>
+
+    <main id="contentContainer">
+        <section id="animeResults">
+            <p>Use the search bar to find your favorite anime or manga.</p>
+        </section>
+
+        <section id="animeDetail" style="display:none;"></section>
+    </main>
+    
+    <script type="module" src="js/main.js"></script>
+</body>
+</html>
