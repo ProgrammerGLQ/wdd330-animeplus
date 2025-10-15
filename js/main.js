@@ -79,8 +79,6 @@ DOM.myListLink.addEventListener('click', (event) => {
     renderAnimeList(favorites, 'favorito'); 
 });
 
-// App Title/Home button listener
-DOM.appTitle.addEventListener('click', handleResetView);
 
 // Initialization
 handleResetView();
